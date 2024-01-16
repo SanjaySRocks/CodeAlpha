@@ -43,8 +43,23 @@ async function Fetch_Recipes() {
 }
 
 async function init() {
-  const recipes = await Fetch_Recipes();
+  // Check if cached data exists in sessionStorage
+  const cachedRecipesJSON = sessionStorage.getItem('cachedRecipes');
+  let recipes;
+
+  if (!cachedRecipesJSON) {
+    console.log("Calling API");
+    recipes = await Fetch_Recipes();
+
+    // Cache the fetched data in sessionStorage
+    sessionStorage.setItem('cachedRecipes', JSON.stringify(recipes));
+  } else {
+    console.log("Using cached data");
+    recipes = JSON.parse(cachedRecipesJSON);
+  }
+
   displayRecipes(recipes);
 }
+
 
 init();
