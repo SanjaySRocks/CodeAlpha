@@ -1,36 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="cupcake">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Fiesta</title>
 
-  <link
-    rel="stylesheet"
-    href="animate.min.css"
-  />
-
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body>
-  <header>
-    <nav>
-      <h1 class="animate__animated animate__bounce">GRANNY's RECIPE BOOK</h1>
-      <form>
-        <input type="text" placeholder="search for recipe...." class="SearchBox">
-        <button type="submit">Search</button>
-      </form>
-    </nav>
-  </header>
 
-  <div class="container">
-    <ul id="recipe-list" class="recipe-list"></ul>
-  </div>
-  <script src="script.js" defer></script>
+<div class="container mx-auto my-5">
+    <div class="navbar bg-base-100 shadow-xl">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">Food Fiesta</a>
+        </div>
+        <div class="flex-none gap-2">
+          <div class="form-control">
+            <input type="text" placeholder="Search Receipe" class="input input-bordered w-24 md:w-auto" />
+          </div>
+          <div class="navbar-end">
+            <a class="btn btn-neutral">Search</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+    <div class="container mx-auto p-5">
+
+
+      <div id="recipe-list" class="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <!-- Load Receipe using JS -->
+    </div>
+
+     
+  
+    </div>
+
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+      <aside>
+        <p>Copyright © 2024 - Food Fiesta</p>
+        <p><a href="https://github.com/sanjaysrocks">GitHub</a></p>
+      </aside>
+    </footer>
+ 
+<script src="script.js"></script>
 </body>
-
 </html>

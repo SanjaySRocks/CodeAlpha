@@ -1,35 +1,27 @@
 const API_KEY = "afdf4197910041fe9271bd95395a5454";
 const recipeListEl = document.getElementById("recipe-list");
 
-function displayRecipes(recipes) {
-  recipeListEl.innerHTML = "";
-  recipes.forEach((recipe) => {
-    const Item_Needed = document.createElement("li");
-    Item_Needed.classList.add("recipe-item");
-    foodImage = document.createElement("img");
-    foodImage.src = recipe.image;
-    foodImage.alt = "recipe image";
+function displayCards(recipes)
+{
+  recipeListEl.innerHTML = ""
+  
+  recipes.forEach((r)=>{
+      var card = `<div class="card w-96 bg-base-100 shadow-xl mt-5 animate__animated animate__backInUp">
+      ${ r.image ? `<figure><img src="${r.image}" alt="Recipe Image" /></figure>` : `  <div class="skeleton h-64 w-full"></div>
+      `}
+      <div class="card-body">
+        <h2 class="card-title">${r.title}</h2>
+        <p class="line-clamp-3"><strong>Ingredients:</strong> ${r.extendedIngredients
+          .map((ingredient) => ingredient.original)
+          .join(", ")}</p>
+        <div class="card-actions justify-end">
+          <a href="${r.sourceUrl}" target="_blank" class="btn btn-primary">Read</a>
+        </div>
+      </div>
+    </div>`
 
-    recipeTitleEl = document.createElement("h2");
-    recipeTitleEl.innerText = recipe.title;
-
-    recipeIngredientsEl = document.createElement("p");
-    recipeIngredientsEl.innerHTML = `
-        <strong>Ingredients:</strong> ${recipe.extendedIngredients
-        .map((ingredient) => ingredient.original)
-        .join(", ")}
-    `;
-
-    recipe_Link = document.createElement("a");
-    recipe_Link.href = recipe.sourceUrl;
-    recipe_Link.innerText = "View Recipe";
-
-    Item_Needed.appendChild(foodImage);
-    Item_Needed.appendChild(recipeTitleEl);
-    Item_Needed.appendChild(recipeIngredientsEl);
-    Item_Needed.appendChild(recipe_Link);
-    recipeListEl.appendChild(Item_Needed);
-  });
+    recipeListEl.insertAdjacentHTML("beforeend", card);
+  })
 }
 
 async function Fetch_Recipes() {
@@ -57,8 +49,7 @@ async function init() {
     console.log("Using cached data");
     recipes = JSON.parse(cachedRecipesJSON);
   }
-
-  displayRecipes(recipes);
+  displayCards(recipes);
 }
 
 
