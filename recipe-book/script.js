@@ -53,4 +53,4 @@ async function init() {
   displayCards(recipes);
 }
 
-// init();
+init();
