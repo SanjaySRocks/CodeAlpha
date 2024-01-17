@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +11,14 @@
 </head>
 <body>
 
-<div class="container mx-auto my-5">
-    <div class="navbar bg-base-100 shadow-xl">
+  
+<div class="container mx-auto flex justify-center">
+  
+    <div class="navbar bg-base-100 shadow-xl rounded-lg border-red-200">
         <div class="flex-1">
-          <a class="btn btn-ghost text-xl">Food Fiesta</a>
+          <a class="pl-3 text-xl subpixel-antialiased font-extrabold text-yellow-400">Food Fiesta</a>
         </div>
-        <div class="flex-none gap-2">
+        <div class="flex-none gap-2 py-2">
           <div class="form-control">
             <input type="text" placeholder="Search Receipe" class="input input-bordered w-24 md:w-auto" />
           </div>
@@ -29,10 +31,15 @@
     </div>
 
 
-    <div class="container mx-auto p-5">
+    <div class="container mx-auto flex justify-center">
 
+      <div id="recipe-list" class="">
 
-      <div id="recipe-list" class="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div class="h-screen flex justify-center items-center">
+          <span class="loading loading-spinner loading-md text-primary"></span>
+          <h1 class="font-bold text-xl bg-base-600 mx-3">Loading...</h1>
+
+        </div>
         <!-- Load Receipe using JS -->
     </div>
 
@@ -43,7 +50,7 @@
     <footer class="footer footer-center p-4 bg-base-300 text-base-content">
       <aside>
         <p>Copyright © 2024 - Food Fiesta</p>
-        <p><a href="https://github.com/sanjaysrocks">GitHub</a></p>
+        <p class="font-bold text-lg"><a href="https://github.com/SanjaySRocks/CodeAlpha">GitHub</a></p>
       </aside>
     </footer>
  

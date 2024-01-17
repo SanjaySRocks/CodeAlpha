@@ -4,6 +4,7 @@ const recipeListEl = document.getElementById("recipe-list");
 function displayCards(recipes)
 {
   recipeListEl.innerHTML = ""
+  recipeListEl.className = "grid grid-cols-1 md:grid-cols-3 gap-2 md:space-x-2";
   
   recipes.forEach((r)=>{
       var card = `<div class="card w-96 bg-base-100 shadow-xl mt-5 animate__animated animate__backInUp">
@@ -11,11 +12,11 @@ function displayCards(recipes)
       `}
       <div class="card-body">
         <h2 class="card-title">${r.title}</h2>
-        <p class="line-clamp-3"><strong>Ingredients:</strong> ${r.extendedIngredients
+        <p class="line-clamp-3 text-pretty"><strong>Ingredients:</strong> ${r.extendedIngredients
           .map((ingredient) => ingredient.original)
           .join(", ")}</p>
         <div class="card-actions justify-end">
-          <a href="${r.sourceUrl}" target="_blank" class="btn btn-primary">Read</a>
+          <a href="${r.sourceUrl}" target="_blank" class="btn btn-sm btn-primary">Read</a>
         </div>
       </div>
     </div>`
@@ -52,5 +53,4 @@ async function init() {
   displayCards(recipes);
 }
 
-
-init();
+// init();
